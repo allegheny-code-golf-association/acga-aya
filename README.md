@@ -1,11 +1,11 @@
 <p align="center">
-  <img align="center" width="180px" src="images/logo.png" />
+  <img align="center" width="180px" src="https://raw.githubusercontent.com/allegheny-code-golf-association/acga-aya/media/images/logo.png" />
 </p>
 
 <h1 align="center">The Aya Programming Language</h1>
 
 <p align="center">
-  <img src="images/example-mosaic.png" />
+  <img src="https://raw.githubusercontent.com/allegheny-code-golf-association/acga-aya/media/images/example-mosaic.png" />
 </p>
 
 ## Features
@@ -183,7 +183,7 @@ y :0i1 * x `+ :* :a;
 {3 .>} .O viewmat.show
 ```
 
-![Mandelbrot Fractal](images/mandel.png)
+![Mandelbrot Fractal](https://raw.githubusercontent.com/allegheny-code-golf-association/acga-aya/media/images/mandel.png)
 
 
 
@@ -213,7 +213,7 @@ color.colors.blue :c;
 } 400 %
 ```
 
-![Turtle Example](images/turtle.png)
+![Turtle Example](https://raw.githubusercontent.com/allegheny-code-golf-association/acga-aya/media/images/turtle.png)
 
 
 
@@ -250,7 +250,7 @@ x {r} {, "Trend":label} plt.plot
 plt.view
 ```
 
-![Lake Huron](images/lakehuron.png)
+![Lake Huron](https://raw.githubusercontent.com/allegheny-code-golf-association/acga-aya/media/images/lakehuron.png)
 
 
 ### Interactive help
