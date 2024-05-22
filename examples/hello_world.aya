@@ -1,4 +1,0 @@
-.# Run this script by typing the following in aya
-.# aya> load "examples/hello_world"
-
-"Hello world!" :P

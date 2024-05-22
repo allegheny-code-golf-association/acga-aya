@@ -1,1 +1,0 @@
-This folder contains many example programs. I do my best to keep them updated as the language changes. There may however be a few errors here and there. 

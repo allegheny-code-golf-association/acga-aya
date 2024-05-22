@@ -1,0 +1,144 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+ 
+  <groupId>com.interpreter.aya</groupId>
+  <artifactId>aya</artifactId>
+  <version>0.4.0</version>
+ 
+  <name>ACGA Aya</name>
+  <url>https://github.com/allegheny-code-golf-association/acga-aya</url>
+ 
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+  </properties>
+ 
+  <dependencyManagement>
+  <dependencies>
+  <dependency>
+  <groupId>org.junit</groupId>
+  <artifactId>junit-bom</artifactId>
+  <version>5.10.1</version>
+  <type>pom</type>
+  <scope>import</scope>
+  </dependency>
+  </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-params</artifactId>
+      <version>5.10.0</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/jfree/jcommon -->
+    <dependency>
+        <groupId>jfree</groupId>
+        <artifactId>jcommon</artifactId>
+        <version>1.0.16</version>
+    </dependency>
+    <dependency>
+      <groupId>com.mathlibrary</groupId>
+      <artifactId>mathlibrary</artifactId>
+      <version>1.0</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/src/main/resources/java-math-numerical.jar</systemPath>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.github.kiprobinson/bigfraction -->
+    <dependency>
+        <groupId>com.github.kiprobinson</groupId>
+        <artifactId>bigfraction</artifactId>
+        <version>1.1.0</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-math3 -->
+    <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-math3</artifactId>
+        <version>3.0</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.jfree/jfreechart -->
+    <dependency>
+        <groupId>org.jfree</groupId>
+        <artifactId>jfreechart</artifactId>
+        <version>1.0.19</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/ch.obermuhlner/big-math -->
+    <dependency>
+        <groupId>ch.obermuhlner</groupId>
+        <artifactId>big-math</artifactId>
+        <version>2.3.2</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.json/json -->
+    <dependency>
+        <groupId>org.json</groupId>
+        <artifactId>json</artifactId>
+        <version>20240303</version>
+    </dependency>
+  </dependencies>  
+  <build>
+  <plugins>
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.22.2</version>
+          <dependencies>
+               <dependency>
+                   <groupId>org.junit.platform</groupId>
+                   <artifactId>junit-platform-surefire-provider</artifactId>
+                   <version>1.2.0</version>
+               </dependency>
+          </dependencies>
+          <configuration>
+            <additionalClasspathElements>
+    		    <additionalClasspathElement>${session.executionRootDirectory}/src/test/java/aya/*Tests.java</additionalClasspathElement>
+            </additionalClasspathElements>
+          </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.6</version>
+        <configuration>
+            <archive>
+                <manifest>
+                    <addClasspath>true</addClasspath>
+                    <mainClass>aya.InteractiveAya</mainClass>
+                </manifest>
+            </archive>
+        </configuration>
+      </plugin>
+     <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <executions>
+            <execution>
+                <id>copy-resources</id>
+                <phase>validate</phase>
+                <goals>
+                    <goal>copy-resources</goal>
+                </goals>
+                <configuration>
+                    <resources>
+                        <resource>
+                            <directory>src/main/resources</directory>
+                            <filtering>true</filtering>
+                        </resource>
+                    </resources>
+                    <outputDirectory>
+                        ${project.build.directory}
+                    </outputDirectory>
+                </configuration>
+            </execution>
+        </executions>
+     </plugin>
+  </plugins>
+  </build>
+</project>
