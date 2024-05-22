@@ -1,0 +1,38 @@
+name: Publish Aya release
+on:
+  push:
+    tags:
+      - '*.*.*'
+
+jobs:
+  build-aya-release:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install maven
+        run: sudo apt-get install maven
+      - name: Clean and package
+        run: mvn clean package
+      - name: Create release
+        id: create-release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+      - name: Upload released asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create-release.outputs.upload_url }}
+          asset_path: target/aya-v${{ github.ref }}.jar
+          asset_name: aya-v${{ github.ref }}.jar
+          asset_content_type: jar
