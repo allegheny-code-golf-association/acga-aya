@@ -19,6 +19,9 @@
 *.tar.gz
 *.rar
 
+# Spare the following package file(s):
+!java-math-numerical.jar
+
 # Maven interlude
 
 target/
