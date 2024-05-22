@@ -32,6 +32,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create-release.outputs.upload_url }}
-          asset_path: target/aya-v${{ github.ref }}.jar
-          asset_name: aya-v${{ github.ref }}.jar
+          asset_path: target/aya-v${{ github.ref_name }}.jar
+          asset_name: aya-v${{ github.ref_name }}.jar
           asset_content_type: jar
