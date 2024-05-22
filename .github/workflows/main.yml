@@ -14,7 +14,9 @@ jobs:
       - name: Install maven
         run: sudo apt-get install maven
       - name: Clean and package
-        run: mvn clean package
+        run: |
+          ls
+          mvn clean package
       - name: Create release
         id: create-release
         uses: actions/create-release@v1
