@@ -6,9 +6,7 @@ on:
 jobs:
   build-aya-release:
     runs-on: ubuntu-latest
-    permissions:
-      packages: write
-      contents: read
+    permissions: write-all
     steps:
       - uses: actions/checkout@v4
       - name: Install maven
