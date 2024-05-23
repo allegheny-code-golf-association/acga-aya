@@ -26,6 +26,8 @@ public class InteractiveAya extends Thread {
 	private String _initcode = null;
 	private String _usercmd = null;
 	private static ConcurrentLinkedQueue<String> _scripts;
+
+	public static boolean _golfmode = true;
 	
 	public void setShowPrompt(boolean b) {_showPromptText = b;};
 	public void setEcho(boolean b) {_echo = b;};
