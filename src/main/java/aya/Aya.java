@@ -190,6 +190,9 @@ public class Aya extends Thread {
 		try {
 			String pathString = Paths.get(AyaPrefs.getAyaDir(), ayarcPath).toString().replace("\\", "\\\\");
 			getInstance().queueInput("\"" + pathString + "\"G~");
+            getInstance().queueInput("import ::golf");
+            getInstance().queueInput("import ::shell");
+            getInstance().queueInput("cd \".\"");
 		} catch (Exception e) {
 			return false;
 		}
